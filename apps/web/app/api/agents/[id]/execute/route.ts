@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '../../../../../lib/auth'
 import { prisma } from '../../../../../../../packages/db'
-import { AgentEngine } from '../../../../../lib/agent-engine'
+import { EnhancedAgentEngine } from '../../../../../lib/enhanced-agent-engine'
 
 export async function POST(
   request: NextRequest,
@@ -59,8 +59,8 @@ export async function POST(
     },
   })
 
-  // Execute agent asynchronously
-  const engine = new AgentEngine()
+  // Execute agent asynchronously with enhanced engine
+  const engine = new EnhancedAgentEngine()
 
   // Start execution in background
   engine
@@ -73,6 +73,6 @@ export async function POST(
   return NextResponse.json({
     executionId: execution.id,
     status: 'started',
-    message: 'Agent execution started. Check status at /api/executions/' + execution.id,
+    message: 'Agent execution started with enhanced AI engine. Check status at /api/executions/' + execution.id,
   })
 }
