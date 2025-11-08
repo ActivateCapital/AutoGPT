@@ -1,10 +1,16 @@
+[variables]
+NIXPACKS_PATH = "apps/web"
+
 [phases.setup]
 nixPkgs = ["nodejs_20"]
+nixLibs = ["glibc"]
 
 [phases.install]
-cmds = ["cd apps/web && npm install"]
+dependsOn = ["setup"]
+cmds = ["cd apps/web && npm ci"]
 
 [phases.build]
+dependsOn = ["install"]
 cmds = ["cd apps/web && npm run build"]
 
 [start]
