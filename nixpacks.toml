@@ -7,7 +7,7 @@ nixLibs = ["glibc"]
 
 [phases.install]
 dependsOn = ["setup"]
-cmds = ["cd apps/web && npm ci"]
+cmds = ["cd apps/web && npm install"]
 
 [phases.build]
 dependsOn = ["install"]
