@@ -1,5 +1,19 @@
 export const AGENT_TEMPLATES = [
   {
+    id: 'general-assistant',
+    name: 'General AI Assistant',
+    description: 'A flexible AI assistant that can answer questions, have conversations, and help with various tasks',
+    category: 'general',
+    icon: '🤖',
+    defaultGoal: 'I am your AI assistant. Ask me anything! I can:\n• Answer questions on any topic\n• Help with research and analysis\n• Create content (emails, posts, articles)\n• Provide advice and recommendations\n• Have natural conversations\n\nWhat would you like help with today?',
+    recommendedModel: 'gpt-4o',
+    config: {
+      actions: ['web_search', 'content_generation', 'data_analysis', 'web_scrape'],
+      maxSteps: 10,
+      model: 'gpt-4o',
+    },
+  },
+  {
     id: 'lead-research',
     name: 'Lead Research Agent',
     description: 'Research and qualify potential leads from LinkedIn, company websites, and business databases',
@@ -44,15 +58,15 @@ export const AGENT_TEMPLATES = [
   {
     id: 'email-responder',
     name: 'Email Response Agent',
-    description: 'Draft professional email responses based on context and tone requirements',
+    description: 'Draft professional email responses, answer questions, and handle communication tasks',
     category: 'communication',
     icon: '📧',
     defaultGoal: 'Draft a professional response to a customer inquiry about our pricing. Tone: friendly and helpful. Include: acknowledgment of their question, clear explanation of our pricing tiers, key benefits of each tier, and a soft call-to-action to schedule a demo.',
-    recommendedModel: 'claude-3-5-haiku-20241022',
+    recommendedModel: 'gpt-4o',
     config: {
       actions: ['content_generation'],
-      maxSteps: 3,
-      model: 'claude-3-5-haiku-20241022',
+      maxSteps: 5,
+      model: 'gpt-4o',
     },
   },
   {
