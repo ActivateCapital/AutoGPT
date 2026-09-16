@@ -17,14 +17,26 @@ storefront; everything else is done or agent-executable on request.
 
 ## ✅ Payment rail — DONE (Stripe, live mode)
 
-Five live Stripe Payment Links exist with **Managed Payments enabled** (Stripe is
-merchant of record: they handle sales tax/VAT and issue invoices). Each redirects
-after purchase to `/thanks/<slug>` on the storefront, which serves the zip from an
-unguessable download path. Links are wired into `apps/web/lib/products.ts`; buy
-buttons and the hero CTA flipped live automatically.
+**Account switched (2026-09-16):** the storefront now sells through Stripe account
+`acct_1EpIM3Ebn7Qq6jsm` ("Activate" / Activate LLC). The previous account
+`acct_1QU4AFIritf6Tf1Z` ("CreaiDev") is no longer connected to the agent and its
+five payment links are still active there — **deactivate them yourself in the old
+account's Stripe dashboard** so nobody can buy through a link that no longer
+delivers to this storefront.
+
+Five live Stripe Payment Links exist on the new account with **Managed Payments
+enabled** (Stripe is merchant of record: they handle sales tax/VAT and issue
+invoices). Each redirects after purchase to `/thanks/<slug>` on the storefront,
+which serves the zip from an unguessable download path. Links are wired into
+`apps/web/lib/products.ts`; buy buttons and the hero CTA flipped live automatically.
+The `LAUNCH` promo code (20% off once, 200 redemptions, expires 2026-09-30) was
+recreated on the new account.
 
 Remaining human checks in the [Stripe dashboard](https://dashboard.stripe.com):
-1. Confirm payouts/KYC are complete so funds actually settle to the bank.
+1. Confirm payouts/KYC are complete so funds actually settle to the bank. At switch
+   time the account had charges and payouts enabled, but Stripe listed one
+   past-due requirement: a proof-of-liveness verification for a person on the
+   account. Clear it so payouts are not paused later.
 2. Confirm the account is approved for Managed Payments (links were accepted with
    it enabled; if Stripe later flags eligibility, the fallback is disabling
    managed_payments and enabling Stripe Tax instead).
