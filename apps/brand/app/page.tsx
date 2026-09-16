@@ -158,6 +158,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Atlas of Flow — the studio's own artwork */}
+      <section className="border-b hairline">
+        <div className="max-w-6xl mx-auto px-5 py-20 grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+          <div className="lg:col-span-3">
+            <Reveal>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/plate-001.jpg"
+                alt="Field Notation — Plate 001: Directed Current. A generative ink drawing of hundreds of fine flow-field strokes bending around a single annotated hexagonal node."
+                className="w-full rounded-sm border hairline shadow-[0_24px_70px_-30px_rgba(26,29,33,0.35)] bg-paper"
+                loading="lazy"
+              />
+            </Reveal>
+          </div>
+          <div className="lg:col-span-2">
+            <Reveal delay={120}>
+              <p className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.14em] uppercase text-brand mb-5">
+                <span className="w-8 h-px bg-brand inline-block" />
+                Atlas of Flow
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-4">
+                Plate 001 — Directed Current
+              </h2>
+              <p className="text-ink-soft leading-relaxed mb-4">
+                The studio documents its own thesis the way a cartographer maps a coastline:
+                two thousand individually placed strokes, one current, one annotated node
+                where the flow bends — the decision.
+              </p>
+              <p className="text-ink-soft leading-relaxed text-sm">
+                Drawn by our generative systems under a written design philosophy, in the
+                studio&apos;s own ink. The living version is the artwork above — seeded fresh
+                for every visitor.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* Principles */}
       <section className="border-b hairline bg-paper-deep/60">
         <div className="max-w-6xl mx-auto px-5 py-20">
