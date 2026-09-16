@@ -59,8 +59,27 @@ export function WorkflowSchematic({ className }: { className?: string }) {
           strokeWidth="2"
         />
         <circle cx="430" cy="280" r="7" fill="var(--brand)" fillOpacity="0.85" />
-        <circle cx="430" cy="280" r="17" stroke="var(--brand)" strokeOpacity="0.35" strokeWidth="1.5" fill="none" />
+        <circle className="node-pulse" cx="430" cy="280" r="17" stroke="var(--brand)" strokeOpacity="0.35" strokeWidth="1.5" fill="none" />
       </g>
+
+      {/* live packets travelling the flows (CSS motion path; hidden under reduced motion) */}
+      {[
+        { d: 'M210 116 C 300 116, 300 250, 372 262', delay: '0s' },
+        { d: 'M210 280 C 280 280, 300 280, 372 280', delay: '1.7s' },
+        { d: 'M210 444 C 300 444, 300 310, 372 298', delay: '3.4s' },
+        { d: 'M470 262 C 530 250, 540 170, 588 160', delay: '0.9s' },
+        { d: 'M470 280 C 530 280, 540 280, 588 280', delay: '2.6s' },
+        { d: 'M470 298 C 530 310, 540 390, 588 400', delay: '4.3s' },
+      ].map((p) => (
+        <circle
+          key={p.d}
+          className="pkt"
+          r="3.2"
+          fill="var(--brand)"
+          fillOpacity="0.75"
+          style={{ offsetPath: `path("${p.d}")`, animationDelay: p.delay }}
+        />
+      ))}
 
       {/* ranked outputs */}
       <g stroke="var(--brand)" strokeOpacity="0.55" strokeWidth="1.75" fill="none">

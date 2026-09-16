@@ -16,6 +16,8 @@ import {
   IconBuild,
 } from '@/components/icons';
 import { WorkflowSchematic } from '@/components/schematic';
+import { TerminalDemo } from '@/components/terminal-demo';
+import { Reveal } from '@/components/reveal';
 
 const kitIcons: Record<string, React.ReactNode> = {
   'agent-skills-pack': <IconSkills className="w-9 h-9 text-brand" />,
@@ -52,6 +54,10 @@ function BuyButton({ product, highlighted = false }: { product: Product; highlig
 
 export default function Home() {
   const contactReady = CONTACT_EMAIL !== 'CONTACT_EMAIL_PENDING';
+  // Until checkout links are live, the only completable action is the free
+  // download — so it takes the primary CTA slot. Flips automatically when
+  // real payment links replace the sentinels.
+  const checkoutLive = kits.some((k) => k.paymentLink !== PAYMENT_LINK_PENDING);
 
   return (
     <div className="min-h-screen bg-paper text-ink">
@@ -81,6 +87,13 @@ export default function Home() {
 
       {/* Hero */}
       <header className="relative overflow-hidden border-b hairline">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/textures/hero-paper.jpg"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 w-full h-full object-cover opacity-70"
+        />
         <WorkflowSchematic className="pointer-events-none absolute inset-y-0 right-0 h-full w-[58rem] max-w-none opacity-80 hidden md:block [mask-image:linear-gradient(to_right,transparent,black_28%)]" />
         <div className="relative max-w-6xl mx-auto px-5 pt-20 pb-24 md:pt-28 md:pb-32">
           <div className="max-w-xl">
@@ -97,20 +110,41 @@ export default function Home() {
               yours forever, doing real work today.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
-              <a
-                href="#kits"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand hover:bg-brand-deep text-paper font-semibold rounded-md transition-colors"
-              >
-                See the kits
-                <IconArrow className="w-4 h-4" />
-              </a>
-              <a
-                href="#free-skill"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-ink/25 hover:border-ink text-ink font-semibold rounded-md transition-colors"
-              >
-                <IconGift className="w-4 h-4 text-accent" />
-                Try a skill free
-              </a>
+              {checkoutLive ? (
+                <>
+                  <a
+                    href="#kits"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand hover:bg-brand-deep text-paper font-semibold rounded-md transition-colors"
+                  >
+                    See the kits
+                    <IconArrow className="w-4 h-4" />
+                  </a>
+                  <a
+                    href="#free-skill"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-ink/25 hover:border-ink text-ink font-semibold rounded-md transition-colors"
+                  >
+                    <IconGift className="w-4 h-4 text-accent" />
+                    Try a skill free
+                  </a>
+                </>
+              ) : (
+                <>
+                  <a
+                    href="#free-skill"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand hover:bg-brand-deep text-paper font-semibold rounded-md transition-colors"
+                  >
+                    <IconDownload className="w-4 h-4" />
+                    Get a free skill now
+                  </a>
+                  <a
+                    href="#kits"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-ink/25 hover:border-ink text-ink font-semibold rounded-md transition-colors"
+                  >
+                    See the kits
+                    <IconArrow className="w-4 h-4" />
+                  </a>
+                </>
+              )}
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-soft">
               {['15-minute setup', 'No subscription — you own the files', 'Runs on your own Claude API key'].map((t) => (
@@ -124,8 +158,51 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Free skill — product-forward demo, directly under the hero */}
+      <section id="free-skill" className="border-b hairline bg-paper-deep/60">
+        <div className="max-w-6xl mx-auto px-5 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <Reveal>
+            <TerminalDemo />
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.14em] uppercase text-accent mb-5">
+              <IconGift className="w-4 h-4" />
+              Free — no email, no signup
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-4">
+              This is the free one. Watch it work.
+            </h2>
+            <p className="text-ink-soft leading-relaxed mb-3 max-w-measure">
+              The Meeting Actions skill — one of five in the Agent Skills Pack. Drop a
+              meeting transcript on Claude Code (or any SKILL.md-compatible agent) and
+              get decisions, owned action items with deadlines, and a follow-up email
+              you review and send.
+            </p>
+            <p className="text-sm text-ink-soft mb-7">
+              Install: unzip into <code className="text-brand font-medium">~/.claude/skills/</code>.
+              That&apos;s the whole setup — and exactly how the paid skills work too.
+            </p>
+            <a
+              href="/downloads/creai-meeting-actions-free.zip"
+              download
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent hover:opacity-90 text-paper font-semibold rounded-md transition-opacity"
+            >
+              <IconDownload className="w-4 h-4" />
+              Download the free skill
+            </a>
+            <p className="text-xs text-ink-soft mt-3">
+              Liked it? The other four are{' '}
+              <a href="#kits" className="text-brand font-medium underline underline-offset-2">
+                $29 for the pack
+              </a>
+              .
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Why a kit */}
-      <section className="border-b hairline bg-paper-deep/60">
+      <section className="border-b hairline">
         <div className="max-w-6xl mx-auto px-5 py-20">
           <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-12 max-w-2xl">
             Why a kit beats another subscription
@@ -157,50 +234,6 @@ export default function Home() {
                 <p className="text-ink-soft leading-relaxed text-[0.95rem]">{item.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Free skill */}
-      <section id="free-skill" className="border-b hairline">
-        <div className="max-w-6xl mx-auto px-5 py-20">
-          <div className="border border-accent/40 rounded-lg bg-paper p-8 md:p-12 md:flex items-center gap-12">
-            <div className="flex-1">
-              <p className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.14em] uppercase text-accent mb-5">
-                <IconGift className="w-4 h-4" />
-                Free — no email, no signup
-              </p>
-              <h2 className="font-display text-3xl md:text-4xl font-semibold tracking-tight mb-4">
-                Try the Meeting Actions skill, on us
-              </h2>
-              <p className="text-ink-soft leading-relaxed mb-3 max-w-measure">
-                One of the five skills from the Agent Skills Pack: drop a meeting
-                transcript on Claude Code (or any SKILL.md-compatible agent) and get
-                decisions, owned action items with deadlines, and a ready-to-paste
-                follow-up email.
-              </p>
-              <p className="text-sm text-ink-soft mb-0">
-                Install: unzip into <code className="text-brand font-medium">~/.claude/skills/</code>.
-                That&apos;s the whole setup — and exactly how the paid skills work too.
-              </p>
-            </div>
-            <div className="mt-8 md:mt-0 md:text-center shrink-0">
-              <a
-                href="/downloads/creai-meeting-actions-free.zip"
-                download
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent hover:opacity-90 text-paper font-semibold rounded-md transition-opacity"
-              >
-                <IconDownload className="w-4 h-4" />
-                Download free skill
-              </a>
-              <p className="text-xs text-ink-soft mt-3">
-                Liked it? The other four are{' '}
-                <a href="#kits" className="text-brand font-medium underline underline-offset-2">
-                  $29 for the pack
-                </a>
-                .
-              </p>
-            </div>
           </div>
         </div>
       </section>

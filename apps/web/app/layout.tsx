@@ -27,9 +27,11 @@ export const metadata: Metadata = {
     siteName: "CreAI",
     locale: "en_US",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "CreAI — working AI agents, this afternoon" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
+    images: ["/og.png"],
     title: "CreAI Automation Kits — Working AI Agents, Today",
     description:
       "Ready-to-deploy AI agent automation kits and agent skills for lead qualification, inbox triage, and content repurposing.",

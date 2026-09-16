@@ -10,21 +10,21 @@ const config = {
     extend: {
       colors: {
         paper: {
-          DEFAULT: "var(--paper)",
-          deep: "var(--paper-deep)",
+          DEFAULT: "rgb(var(--paper-rgb) / <alpha-value>)",
+          deep: "rgb(var(--paper-deep-rgb) / <alpha-value>)",
         },
         ink: {
-          DEFAULT: "var(--ink)",
-          soft: "var(--ink-soft)",
+          DEFAULT: "rgb(var(--ink-rgb) / <alpha-value>)",
+          soft: "rgb(var(--ink-soft-rgb) / <alpha-value>)",
         },
         brand: {
-          DEFAULT: "var(--brand)",
-          deep: "var(--brand-deep)",
+          DEFAULT: "rgb(var(--brand-rgb) / <alpha-value>)",
+          deep: "rgb(var(--brand-deep-rgb) / <alpha-value>)",
         },
         accent: {
-          DEFAULT: "var(--accent)",
+          DEFAULT: "rgb(var(--accent-rgb) / <alpha-value>)",
         },
-        line: "var(--line)",
+        line: "rgb(var(--line-rgb) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
