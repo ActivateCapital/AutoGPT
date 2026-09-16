@@ -12,6 +12,8 @@ storefront; everything else is done or agent-executable on request.
 - [x] Fabricated stats and fake waitlist form removed from the page
 - [x] Unfinished platform code moved to `apps/platform-scaffold/` (documented there)
 - [x] Launch post drafts in `launch/` (awaiting approval — nothing auto-posts)
+- [x] Free sample skill (Meeting Actions) downloadable from the live site with no
+      email gate — the site delivers real value before checkout even exists
 
 ## 👤 Human step 1 — payment rail (~15 min, blocks everything)
 

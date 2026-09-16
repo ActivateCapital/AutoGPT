@@ -23,6 +23,10 @@ Each skill ships with an editable reference file (your rubric, your context, you
 voice) — the same plain-English customization layer as our full kits, minus all the
 infrastructure.
 
+**Free sample:** `creai-meeting-actions` is available as a free download on the
+storefront (no email required) — it's the try-before-you-buy for this pack, so it
+also ships here as part of the paid bundle.
+
 ## Install (60 seconds)
 
 See [INSTALL.md](INSTALL.md). Short version: copy the folders in `skills/` into

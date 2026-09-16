@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Sparkles, Zap, Mail, FileText, Target, Package, Wrench, ChevronDown } from 'lucide-react';
+import { ArrowRight, Check, Sparkles, Zap, Mail, FileText, Target, Package, Wrench, ChevronDown, Download, Gift } from 'lucide-react';
 import { kits, bundle, doneForYou, CONTACT_EMAIL, PAYMENT_LINK_PENDING, type Product } from '@/lib/products';
 
 const kitIcons: Record<string, React.ReactNode> = {
@@ -85,10 +85,11 @@ export default function Home() {
               <ArrowRight className="w-5 h-5" />
             </a>
             <a
-              href="#done-for-you"
-              className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20"
+              href="#free-skill"
+              className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg transition-all border border-white/20 flex items-center gap-2"
             >
-              Or have us build it for you
+              <Gift className="w-5 h-5 text-amber-400" />
+              Try a skill free
             </a>
           </div>
 
@@ -149,6 +150,39 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Free skill */}
+      <section id="free-skill" className="py-20 px-4">
+        <div className="max-w-3xl mx-auto text-center p-10 rounded-lg bg-gradient-to-b from-amber-500/10 to-transparent border border-amber-500/30">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/20 border border-amber-500/30 rounded-full text-amber-300 text-sm mb-6">
+            <Gift className="w-4 h-4" />
+            <span>Free — no email, no signup, no catch</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Try the Meeting Actions skill, on us
+          </h2>
+          <p className="text-lg text-gray-300 mb-3 max-w-2xl mx-auto">
+            One of the five skills from the Agent Skills Pack, free: drop a meeting
+            transcript on your agent and get decisions, owned action items with
+            deadlines, and a ready-to-paste follow-up email.
+          </p>
+          <p className="text-sm text-gray-400 mb-8">
+            Install: unzip into <code className="text-amber-300">~/.claude/skills/</code> (Claude Code) or your
+            agent&apos;s skills folder. That&apos;s the whole setup — and exactly how the paid skills work too.
+          </p>
+          <a
+            href="/downloads/creai-meeting-actions-free.zip"
+            download
+            className="inline-flex items-center gap-2 px-8 py-4 bg-amber-500 hover:bg-amber-400 text-gray-900 font-bold rounded-lg transition-all shadow-lg shadow-amber-500/30"
+          >
+            <Download className="w-5 h-5" />
+            Download the free skill
+          </a>
+          <p className="text-gray-500 text-sm mt-6">
+            Liked it? The other four skills are <a href="#kits" className="text-amber-300 hover:underline">$29 for the pack</a>.
+          </p>
         </div>
       </section>
 

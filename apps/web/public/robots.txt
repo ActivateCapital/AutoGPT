@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://storefront-production-c1a7.up.railway.app/sitemap.xml
