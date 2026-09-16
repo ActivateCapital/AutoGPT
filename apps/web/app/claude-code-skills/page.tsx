@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     siteName: 'CreAI',
     locale: 'en_US',
     type: 'article',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'CreAI — working AI agents, this afternoon' }],
+    images: [{ url: '/og.jpg', width: 1200, height: 630, type: 'image/jpeg', alt: 'CreAI — working AI agents, this afternoon' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: OG_TITLE,
     description: OG_DESCRIPTION,
-    images: ['/og.png'],
+    images: ['/og.jpg'],
   },
 };
 

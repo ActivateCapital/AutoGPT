@@ -28,11 +28,12 @@ export const metadata: Metadata = {
     siteName: "CreAI",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "CreAI — working AI agents, this afternoon" }],
+    // JPEG on purpose: iMessage and WhatsApp drop preview images much over 300 KB.
+    images: [{ url: "/og.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "CreAI — working AI agents, this afternoon" }],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/og.png"],
+    images: ["/og.jpg"],
     title: "CreAI Automation Kits — Working AI Agents, Today",
     description:
       "Ready-to-deploy AI agent automation kits and agent skills for lead qualification, inbox triage, and content repurposing.",

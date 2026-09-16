@@ -23,13 +23,14 @@ export const metadata: Metadata = {
     siteName: "CreAI",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "CreAI — where creativity meets AI" }],
+    // JPEG on purpose: iMessage and WhatsApp drop preview images much over 300 KB.
+    images: [{ url: "/og.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "CreAI — where creativity meets AI" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "CreAI — Where Creativity Meets AI",
     description: "A creative intelligence studio. Human taste directs machine capability.",
-    images: ["/og.png"],
+    images: ["/og.jpg"],
   },
   robots: { index: true, follow: true },
 };
