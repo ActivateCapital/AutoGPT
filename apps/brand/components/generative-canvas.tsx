@@ -40,9 +40,9 @@ export function GenerativeCanvas({ className }: { className?: string }) {
     const pointer = { x: -9999, y: -9999 };
 
     const COLORS = [
-      { c: '26,29,33', w: 0.54 },   // ink
-      { c: '30,95,78', w: 0.36 },   // brand green
-      { c: '185,116,31', w: 0.1 },  // amber
+      { c: '242,239,232', w: 0.5 },  // cream
+      { c: '61,161,131', w: 0.38 }, // leaf
+      { c: '217,145,54', w: 0.12 }, // ember
     ];
     const pickColor = () => {
       const r = Math.random();
@@ -82,7 +82,7 @@ export function GenerativeCanvas({ className }: { className?: string }) {
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.fillStyle = 'rgba(247,245,240,1)';
+      ctx.fillStyle = 'rgba(16,19,22,1)';
       ctx.fillRect(0, 0, width, height);
       particles = Array.from({ length: reduced ? 700 : 430 }, spawn);
     };
@@ -113,7 +113,7 @@ export function GenerativeCanvas({ className }: { className?: string }) {
           continue;
         }
 
-        ctx.strokeStyle = `rgba(${p.color},0.28)`;
+        ctx.strokeStyle = `rgba(${p.color},0.27)`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(p.px, p.py);
@@ -131,7 +131,7 @@ export function GenerativeCanvas({ className }: { className?: string }) {
       const loop = (t: number) => {
         if (!running) return;
         // slow fade → strokes accumulate into washes, then breathe out
-        ctx.fillStyle = 'rgba(247,245,240,0.014)';
+        ctx.fillStyle = 'rgba(16,19,22,0.016)';
         ctx.fillRect(0, 0, width, height);
         step(t);
         raf = requestAnimationFrame(loop);

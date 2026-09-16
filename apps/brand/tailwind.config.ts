@@ -9,28 +9,26 @@ const config = {
   theme: {
     extend: {
       colors: {
-        paper: {
-          DEFAULT: "rgb(var(--paper-rgb) / <alpha-value>)",
-          deep: "rgb(var(--paper-deep-rgb) / <alpha-value>)",
+        night: {
+          DEFAULT: "rgb(var(--night-rgb) / <alpha-value>)",
+          deep: "#0a0c0e",
         },
-        ink: {
-          DEFAULT: "rgb(var(--ink-rgb) / <alpha-value>)",
-          soft: "rgb(var(--ink-soft-rgb) / <alpha-value>)",
+        surface: "rgb(var(--surface-rgb) / <alpha-value>)",
+        cream: {
+          DEFAULT: "rgb(var(--cream-rgb) / <alpha-value>)",
+          soft: "rgb(var(--cream-soft-rgb) / <alpha-value>)",
         },
-        brand: {
-          DEFAULT: "rgb(var(--brand-rgb) / <alpha-value>)",
-          deep: "rgb(var(--brand-deep-rgb) / <alpha-value>)",
+        leaf: {
+          DEFAULT: "rgb(var(--leaf-rgb) / <alpha-value>)",
+          deep: "rgb(var(--leaf-deep-rgb) / <alpha-value>)",
         },
-        accent: {
-          DEFAULT: "rgb(var(--accent-rgb) / <alpha-value>)",
-        },
-        line: "rgb(var(--line-rgb) / <alpha-value>)",
+        ember: "rgb(var(--ember-rgb) / <alpha-value>)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-grotesk)", "system-ui", "sans-serif"],
       },
       maxWidth: {
-        measure: "68ch",
+        measure: "64ch",
       },
     },
   },

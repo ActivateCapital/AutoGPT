@@ -4,43 +4,46 @@
 
 @layer base {
   :root {
-    --paper: #f7f5f0;
-    --paper-deep: #efebe2;
-    --ink: #1a1d21;
-    --ink-soft: #4d545d;
-    --brand: #1e5f4e;
-    --brand-deep: #17493c;
-    --accent: #b9741f;
-    --line: #ddd6c8;
-    --paper-rgb: 247 245 240;
-    --paper-deep-rgb: 239 235 226;
-    --ink-rgb: 26 29 33;
-    --ink-soft-rgb: 77 84 93;
-    --brand-rgb: 30 95 78;
-    --brand-deep-rgb: 23 73 60;
-    --accent-rgb: 185 116 31;
-    --line-rgb: 221 214 200;
+    /* The studio is a night world — the store's daylight inverted. */
+    --night: #101316;
+    --night-deep: #0a0c0e;
+    --surface: #171b1f;
+    --cream: #f2efe8;
+    --cream-soft: #b9b4a8;
+    --leaf: #3da183;
+    --leaf-deep: #2c8168;
+    --ember: #d99136;
+    --hairline: rgba(242, 239, 232, 0.14);
+
+    --night-rgb: 16 19 22;
+    --surface-rgb: 23 27 31;
+    --cream-rgb: 242 239 232;
+    --cream-soft-rgb: 185 180 168;
+    --leaf-rgb: 61 161 131;
+    --leaf-deep-rgb: 44 129 104;
+    --ember-rgb: 217 145 54;
   }
 
   html {
     scroll-behavior: smooth;
+    background: var(--night);
   }
 
   body {
-    background-color: var(--paper);
-    color: var(--ink);
+    background-color: var(--night);
+    color: var(--cream);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background: var(--brand);
-    color: var(--paper);
+    background: var(--leaf);
+    color: var(--night);
   }
 
   a:focus-visible,
   button:focus-visible {
-    outline: 2px solid var(--brand);
+    outline: 2px solid var(--leaf);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -48,59 +51,98 @@
 
 @layer utilities {
   .font-display {
-    font-family: var(--font-fraunces), Georgia, serif;
-    font-optical-sizing: auto;
+    font-family: var(--font-gloock), Georgia, serif;
+  }
+  .font-mono-label {
+    font-family: var(--font-plexmono), monospace;
   }
   .hairline {
-    border-color: var(--line);
+    border-color: var(--hairline);
   }
 }
 
-/* Tactile grain overlay */
+/* film grain, tuned for the dark */
 body::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.16;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='7'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.1 0 0 0 0 0.11 0 0 0 0 0.12 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='7'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.95 0 0 0 0 0.94 0 0 0 0 0.9 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Word-by-word ink reveal for the hero headline */
+/* headline: letters surface out of the dark */
 .reveal-word {
   display: inline-block;
   opacity: 0;
-  transform: translateY(0.35em);
-  animation: word-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  filter: blur(6px);
+  transform: translateY(0.25em);
+  animation: word-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
 @keyframes word-in {
   to {
     opacity: 1;
+    filter: blur(0);
     transform: none;
   }
 }
 
-/* Scroll reveal */
+/* manifesto marquee */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 0;
+}
+.marquee > div {
+  flex-shrink: 0;
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 46s linear infinite;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* scroll reveal */
 .rv {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(18px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .rv.rv-in {
   opacity: 1;
   transform: none;
 }
 
+/* catalogue index rows */
+.index-row {
+  transition: background-color 0.25s ease, padding-left 0.25s ease;
+}
+.index-row:hover {
+  background-color: rgba(242, 239, 232, 0.04);
+  padding-left: 0.75rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-word {
     animation: none;
     opacity: 1;
+    filter: none;
     transform: none;
+  }
+  .marquee > div {
+    animation: none;
   }
   .rv {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+  .index-row {
     transition: none;
   }
   html {
