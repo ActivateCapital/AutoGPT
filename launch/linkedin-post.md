@@ -27,6 +27,6 @@ AI agent — researched, coded, tested, and documented — with humans setting t
 and holding the keys. That's also why the products are opinionated about keeping *you*
 in the loop: the agent drafts, you decide.
 
-[STOREFRONT_URL]
+https://storefront-production-c1a7.up.railway.app
 
 What's the one workflow you'd hand to an agent tomorrow?

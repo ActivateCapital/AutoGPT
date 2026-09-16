@@ -32,9 +32,9 @@ Don't take our word for it — the Meeting Actions skill is free on the site. No
 no signup. Drop a transcript on Claude Code and watch it produce owned action items
 and the follow-up email.
 
-$29 for the 5-skill pack, $99 for everything. 14-day money-back, no questions.
+$29 for the 5-skill pack, $99 for everything — code LAUNCH takes 20% off. 14-day money-back, no questions.
 
-Link: [STOREFRONT_URL]
+Link: https://storefront-production-c1a7.up.railway.app
 
 Built almost entirely by an AI agent, reviewed and shipped by humans. Ask us anything
 about that below — the honest version, including what it got wrong.

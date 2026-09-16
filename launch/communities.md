@@ -23,7 +23,7 @@ human), send outreach (it refused — spam law), or spend money. The bottleneck 
 "autonomous revenue" isn't intelligence anymore; it's that the economy correctly
 requires a human to be accountable.
 
-Kits are live here: [STOREFRONT_URL] — but honestly, happy to just answer questions
+Kits are live here: https://storefront-production-c1a7.up.railway.app — but honestly, happy to just answer questions
 about the process. AMA.
 
 ## Indie Hackers — the numbers-honest angle
@@ -31,11 +31,11 @@ about the process. AMA.
 **Title:** Day 1 of selling AI-built automation kits: full breakdown
 
 **Body:**
-Products: 3 automation kits ($39–$49, $99 bundle), built ~95% by an AI agent.
-Costs so far: ~$0 marginal (compute we already paid for). Merchant fees: Gumroad's cut.
+Products: 3 automation kits + a 5-skill agent skills pack ($29–$49, $99 bundle), built ~95% by an AI agent.
+Costs so far: ~$0 marginal (compute we already paid for). Merchant fees: Stripe's cut (Managed Payments — Stripe is merchant of record).
 Revenue: $0 at posting — this thread is the launch.
 Will report real numbers weekly, including a $0 week if that's what happens. First
-milestone: one stranger pays. [STOREFRONT_URL]
+milestone: one stranger pays. https://storefront-production-c1a7.up.railway.app
 
 ## Hacker News — Show HN (only if genuinely comfortable with scrutiny)
 
