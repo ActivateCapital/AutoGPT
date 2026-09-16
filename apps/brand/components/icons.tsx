@@ -23,17 +23,21 @@ function Svg({ className, children }: IconProps & { children: React.ReactNode })
   );
 }
 
-/** Logo mark: the CreAI tile (public/logo.png). Sized by the caller's className. */
+/**
+ * Logo mark: the CreAI spectrum C on transparency (public/logo-mark.png),
+ * so it sits directly on the page. The filled tile (public/logo.png) is
+ * kept for the favicon, Apple icon and share card. Sized by the caller.
+ */
 export function LogoMark({ className }: IconProps) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/logo.png"
+      src="/logo-mark.png"
       alt="CreAI"
-      width={180}
-      height={180}
+      width={122}
+      height={122}
       draggable={false}
-      className={`rounded-[22%] select-none ${className ?? ''}`}
+      className={`select-none ${className ?? ''}`}
     />
   );
 }
