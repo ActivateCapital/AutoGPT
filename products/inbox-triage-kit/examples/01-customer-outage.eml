@@ -1,0 +1,16 @@
+From: Maria Chen <maria.chen@acmefreight.com>
+To: jordan@example.com
+Subject: Integration down since this morning - shipments blocked
+Date: Mon, 14 Sep 2026 08:12:44 -0500
+Content-Type: text/plain; charset="utf-8"
+
+Jordan,
+
+Our sync with your API has been failing since about 6am CT and we can't
+release today's shipments. Error is "401 token expired" on every call.
+We renewed our contract last month specifically for this workflow.
+
+Can someone look at this urgently? Happy to jump on a call.
+
+Maria Chen
+Ops Director, Acme Freight

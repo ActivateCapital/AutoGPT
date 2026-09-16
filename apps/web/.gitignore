@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+
+# The repo-root .gitignore (inherited from upstream AutoGPT) globally ignores
+# package.json, package-lock.json and lib/ — which is how the original web app
+# shipped un-buildable. Re-include them for this app.
+!package.json
+!package-lock.json
+!lib/

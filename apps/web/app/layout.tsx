@@ -1,36 +1,30 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CreAI - Build AI Agents That Actually Work For You",
-  description: "The first no-code platform to create autonomous AI agents that automate your business workflows. No coding required. 500+ integrations.",
-  keywords: "AI automation, AI agents, autonomous agents, workflow automation, no-code automation, business automation, AutoGPT, n8n alternative",
+  title: "CreAI Automation Kits — Working AI Agents, Today",
+  description:
+    "Ready-to-deploy AI agent automation kits: lead qualification, inbox triage, and content repurposing. Prompt systems, runnable code, and no-code recipes you set up in 15 minutes.",
+  keywords:
+    "AI automation kit, AI agents, lead scoring, inbox triage, content repurposing, Claude automation, workflow automation",
   authors: [{ name: "CreAI" }],
   openGraph: {
-    title: "CreAI - Build AI Agents That Actually Work For You",
-    description: "The first no-code platform to create autonomous AI agents that automate your business workflows.",
+    title: "CreAI Automation Kits — Working AI Agents, Today",
+    description:
+      "Ready-to-deploy AI agent automation kits for lead qualification, inbox triage, and content repurposing. Set up in 15 minutes.",
     url: "https://www.creai.dev",
     siteName: "CreAI",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "CreAI Platform",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "CreAI - Build AI Agents That Actually Work For You",
-    description: "The first no-code platform to create autonomous AI agents that automate your business workflows.",
-    images: ["/og-image.jpg"],
+    card: "summary",
+    title: "CreAI Automation Kits — Working AI Agents, Today",
+    description:
+      "Ready-to-deploy AI agent automation kits for lead qualification, inbox triage, and content repurposing.",
   },
   robots: {
     index: true,
@@ -45,9 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
