@@ -1,0 +1,3 @@
+# Upstream .gitignore ignores dist/ globally; these product zips are the
+# hand-off deliverables for the merchant upload, so keep them tracked.
+!dist/
