@@ -9,9 +9,7 @@
 
 export const PAYMENT_LINK_PENDING = 'PAYMENT_LINK_PENDING';
 
-// Replace with the public sales inbox before launch (see /LAUNCH-CHECKLIST.md).
-// While it holds the sentinel, the done-for-you CTA renders as "launching soon".
-export const CONTACT_EMAIL = 'CONTACT_EMAIL_PENDING';
+export const CONTACT_EMAIL: string = 'contact@creai.dev';
 
 export interface Product {
   id: string;
