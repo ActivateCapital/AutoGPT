@@ -23,18 +23,14 @@ function Svg({ className, children }: IconProps & { children: React.ReactNode })
   );
 }
 
-/** Logo mark: the CreAI tile (public/logo.png). Sized by the caller's className. */
+/** Logo mark: a task node completing its loop — automation closing the circle. */
 export function LogoMark({ className }: IconProps) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src="/logo.png"
-      alt="CreAI"
-      width={180}
-      height={180}
-      draggable={false}
-      className={`rounded-[22%] select-none ${className ?? ''}`}
-    />
+    <Svg className={className}>
+      <path d="M20 12a8 8 0 1 1-3.2-6.4" />
+      <path d="M20.5 3.5 21 8l-4.5-.5" />
+      <circle cx="12" cy="12" r="2.6" fill="currentColor" stroke="none" />
+    </Svg>
   );
 }
 
