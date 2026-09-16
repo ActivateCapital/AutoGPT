@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  axes: ["opsz"],
+});
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://storefront-production-c1a7.up.railway.app";
 
@@ -12,13 +17,13 @@ export const metadata: Metadata = {
   description:
     "Ready-to-deploy AI agent automation kits: lead qualification, inbox triage, and content repurposing. Prompt systems, runnable code, and no-code recipes you set up in 15 minutes.",
   keywords:
-    "AI automation kit, AI agents, lead scoring, inbox triage, content repurposing, Claude automation, workflow automation",
+    "AI automation kit, AI agents, lead scoring, inbox triage, content repurposing, Claude automation, workflow automation, agent skills",
   authors: [{ name: "CreAI" }],
   openGraph: {
     title: "CreAI Automation Kits — Working AI Agents, Today",
     description:
-      "Ready-to-deploy AI agent automation kits for lead qualification, inbox triage, and content repurposing. Set up in 15 minutes.",
-    url: "https://www.creai.dev",
+      "Ready-to-deploy AI agent automation kits and agent skills for lead qualification, inbox triage, and content repurposing. Set up in 15 minutes.",
+    url: SITE_URL,
     siteName: "CreAI",
     locale: "en_US",
     type: "website",
@@ -27,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "CreAI Automation Kits — Working AI Agents, Today",
     description:
-      "Ready-to-deploy AI agent automation kits for lead qualification, inbox triage, and content repurposing.",
+      "Ready-to-deploy AI agent automation kits and agent skills for lead qualification, inbox triage, and content repurposing.",
   },
   robots: {
     index: true,
@@ -41,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }
