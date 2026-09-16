@@ -2,19 +2,34 @@ import type { Metadata } from 'next';
 import { LogoMark, IconSkills, IconDownload, IconCheck, IconArrow, IconGift } from '@/components/icons';
 import { kits } from '@/lib/products';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://storefront-production-c1a7.up.railway.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://skills.creai.dev';
+
+// Note: a page-level `openGraph` replaces the root layout's block wholesale
+// (Next does not deep-merge it), so the image and Twitter card are repeated
+// here or link previews for this page would have no picture.
+const OG_TITLE = 'Claude Code Skills: How They Work + 5 Ready-Made Business Skills';
+const OG_DESCRIPTION =
+  'What SKILL.md files are, how skills trigger, how to install them — and a free production skill to try today.';
 
 export const metadata: Metadata = {
-  title: 'Claude Code Skills: How They Work + 5 Ready-Made Business Skills',
+  title: OG_TITLE,
   description:
     'A practical guide to Claude Code skills: what a SKILL.md file is, how skills trigger, how to install them in 60 seconds, and where to get ready-made skills for lead scoring, inbox triage, meetings, and content.',
   alternates: { canonical: `${SITE_URL}/claude-code-skills` },
   openGraph: {
-    title: 'Claude Code Skills: How They Work + 5 Ready-Made Business Skills',
-    description:
-      'What SKILL.md files are, how skills trigger, how to install them — and a free production skill to try today.',
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
     url: `${SITE_URL}/claude-code-skills`,
+    siteName: 'CreAI',
+    locale: 'en_US',
     type: 'article',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'CreAI — working AI agents, this afternoon' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: OG_TITLE,
+    description: OG_DESCRIPTION,
+    images: ['/og.png'],
   },
 };
 

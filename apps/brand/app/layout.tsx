@@ -10,6 +10,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.creai.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: { canonical: SITE_URL },
   title: "CreAI — Where Creativity Meets AI",
   description:
     "CreAI is a creative intelligence studio: ventures where human taste directs machine capability. CreAI Skills is live today; more rooms are being built.",

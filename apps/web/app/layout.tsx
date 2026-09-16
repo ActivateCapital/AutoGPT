@@ -9,10 +9,11 @@ const fraunces = Fraunces({
   axes: ["opsz"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://storefront-production-c1a7.up.railway.app";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://skills.creai.dev";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: { canonical: SITE_URL },
   title: "CreAI Automation Kits — Working AI Agents, Today",
   description:
     "Ready-to-deploy AI agent automation kits: lead qualification, inbox triage, and content repurposing. Prompt systems, runnable code, and no-code recipes you set up in 15 minutes.",
