@@ -15,16 +15,23 @@ storefront; everything else is done or agent-executable on request.
 - [x] Free sample skill (Meeting Actions) downloadable from the live site with no
       email gate — the site delivers real value before checkout even exists
 
-## 👤 Human step 1 — payment rail (~15 min, blocks everything)
+## ✅ Payment rail — DONE (Stripe, live mode)
 
-1. Create a merchant account: **Gumroad** (simplest) or **Lemon Squeezy** (nicer
-   checkout, also a merchant of record). Complete payout/KYC.
-2. Package the products: run the zip commands in `products/README.md`, upload the
-   five zips at $29 (skills pack) / $49 / $39 / $49 / $99 (bundle), enable "14-day
-   refund" in settings.
-3. Copy each product's checkout URL.
+Five live Stripe Payment Links exist with **Managed Payments enabled** (Stripe is
+merchant of record: they handle sales tax/VAT and issue invoices). Each redirects
+after purchase to `/thanks/<slug>` on the storefront, which serves the zip from an
+unguessable download path. Links are wired into `apps/web/lib/products.ts`; buy
+buttons and the hero CTA flipped live automatically.
 
-**High-leverage extra (~20 min):** also list the Agent Skills Pack on the skills
+Remaining human checks in the [Stripe dashboard](https://dashboard.stripe.com):
+1. Confirm payouts/KYC are complete so funds actually settle to the bank.
+2. Confirm the account is approved for Managed Payments (links were accepted with
+   it enabled; if Stripe later flags eligibility, the fallback is disabling
+   managed_payments and enabling Stripe Tax instead).
+3. Optional hardening: add STRIPE_SECRET_KEY to Railway and we'll gate downloads
+   behind checkout-session verification instead of unguessable URLs.
+
+**High-leverage extra (~20 min):** list the Agent Skills Pack on the skills
 marketplaces that have their own buyer traffic — Agensi (curated, creators keep 70%)
 and KissMySkills — plus Gumroad Discover. Marketplace distribution is the strongest
 demand channel we found; it needs a human-owned seller account on each platform.

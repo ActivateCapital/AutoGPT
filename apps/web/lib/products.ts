@@ -1,11 +1,10 @@
 // Product catalog for the CreAI Automation Kits storefront.
 //
-// PAYMENT LINKS: each `paymentLink` below must be replaced with a real checkout
-// URL from the merchant-of-record account (Gumroad or Lemon Squeezy) before
-// launch — see /LAUNCH-CHECKLIST.md at the repo root. While a link still holds
-// the PAYMENT_LINK_PENDING sentinel, the storefront renders that product's buy
-// button in a disabled "launching soon" state, so the site is safe to deploy
-// at any time.
+// PAYMENT LINKS are live Stripe Payment Links (Managed Payments enabled —
+// Stripe is merchant of record and handles tax and invoicing). Each link
+// redirects after purchase to /thanks/<slug>, which serves the download
+// (see lib/delivery.ts). If a product ever needs to be pulled, set its
+// paymentLink back to PAYMENT_LINK_PENDING and the buy button disables.
 
 export const PAYMENT_LINK_PENDING = 'PAYMENT_LINK_PENDING';
 
@@ -28,7 +27,7 @@ export const kits: Product[] = [
     tagline:
       'Five business skills for Claude Code, Cursor, and every SKILL.md-compatible agent. Copy a folder — the AI you already pay for becomes your ops team.',
     price: '$29',
-    paymentLink: PAYMENT_LINK_PENDING,
+    paymentLink: 'https://buy.stripe.com/aFa00jdQBbVv64k7cgcIE00',
     outcomes: [
       'Lead scoring, inbox triage, and content repurposing inside your agent',
       'Plus two more: meeting transcripts → owned action items, and honest weekly reviews',
@@ -47,7 +46,7 @@ export const kits: Product[] = [
     tagline:
       'Stop eyeballing your lead list. Score, rank, and route every inbound lead with a Claude-powered agent you run yourself.',
     price: '$49',
-    paymentLink: PAYMENT_LINK_PENDING,
+    paymentLink: 'https://buy.stripe.com/4gMbJ1cMxgbLeAQdAEcIE01',
     outcomes: [
       'Every lead scored 0–100 with a written reason, not a black box',
       'Ranked CSV out — your best 10 leads on top every morning',
@@ -66,7 +65,7 @@ export const kits: Product[] = [
     tagline:
       'Turn a 200-email inbox into a 20-minute review. Classify, prioritize, and pre-draft replies for everything that lands.',
     price: '$39',
-    paymentLink: PAYMENT_LINK_PENDING,
+    paymentLink: 'https://buy.stripe.com/fZu00j27T1gR2S868ccIE02',
     outcomes: [
       'Every email labeled: act-now, respond-today, delegate, archive',
       'A drafted reply attached to everything that needs one',
@@ -85,7 +84,7 @@ export const kits: Product[] = [
     tagline:
       'One blog post or transcript in — an X thread, LinkedIn post, newsletter section, and YouTube description out, in your voice.',
     price: '$49',
-    paymentLink: PAYMENT_LINK_PENDING,
+    paymentLink: 'https://buy.stripe.com/eVqbJ1h2N2kVboE548cIE03',
     outcomes: [
       'Four channel-native drafts from every piece you publish',
       'Voice profile keeps output sounding like you, not like AI',
@@ -105,7 +104,7 @@ export const bundle: Product = {
   name: 'Everything Bundle',
   tagline: 'All three kits plus the Agent Skills Pack: every workflow, both formats.',
   price: '$99',
-  paymentLink: PAYMENT_LINK_PENDING,
+  paymentLink: 'https://buy.stripe.com/3cIcN5dQB8JjfEU9kocIE04',
   outcomes: ['All three kits + the Agent Skills Pack', 'Save $67 vs. buying separately', 'All future updates included'],
   contents: [],
 };
