@@ -17,9 +17,15 @@ storefront; everything else is done or agent-executable on request.
 
 1. Create a merchant account: **Gumroad** (simplest) or **Lemon Squeezy** (nicer
    checkout, also a merchant of record). Complete payout/KYC.
-2. Package the kits: run the zip commands in `products/README.md`, upload the four
-   zips as products at $49 / $39 / $49 / $99, enable "14-day refund" in settings.
+2. Package the products: run the zip commands in `products/README.md`, upload the
+   five zips at $29 (skills pack) / $49 / $39 / $49 / $99 (bundle), enable "14-day
+   refund" in settings.
 3. Copy each product's checkout URL.
+
+**High-leverage extra (~20 min):** also list the Agent Skills Pack on the skills
+marketplaces that have their own buyer traffic — Agensi (curated, creators keep 70%)
+and KissMySkills — plus Gumroad Discover. Marketplace distribution is the strongest
+demand channel we found; it needs a human-owned seller account on each platform.
 
 ## 👤 Human step 2 — hand the links back
 

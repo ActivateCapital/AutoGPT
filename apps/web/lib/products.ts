@@ -23,6 +23,25 @@ export interface Product {
 
 export const kits: Product[] = [
   {
+    id: 'agent-skills-pack',
+    name: 'Agent Skills Pack',
+    tagline:
+      'Five business skills for Claude Code, Cursor, and every SKILL.md-compatible agent. Copy a folder — the AI you already pay for becomes your ops team.',
+    price: '$29',
+    paymentLink: PAYMENT_LINK_PENDING,
+    outcomes: [
+      'Lead scoring, inbox triage, and content repurposing inside your agent',
+      'Plus two more: meeting transcripts → owned action items, and honest weekly reviews',
+      'Installs in 60 seconds — no Python, no API key, no hosting',
+    ],
+    contents: [
+      'Five production SKILL.md skills with editable reference files',
+      'Works in Claude Code, Cursor, Copilot, Codex CLI, and 20+ agents',
+      'Structural test suite + install guide for every platform',
+      'Same customization layer as the full kits (rubric, context, voice)',
+    ],
+  },
+  {
     id: 'lead-qualifier-kit',
     name: 'Lead Qualifier Agent Kit',
     tagline:
@@ -83,11 +102,11 @@ export const kits: Product[] = [
 
 export const bundle: Product = {
   id: 'all-kits-bundle',
-  name: 'All Three Kits',
-  tagline: 'The full stack: leads scored, inbox triaged, content shipped.',
+  name: 'Everything Bundle',
+  tagline: 'All three kits plus the Agent Skills Pack: every workflow, both formats.',
   price: '$99',
   paymentLink: PAYMENT_LINK_PENDING,
-  outcomes: ['Everything in all three kits', 'Save $38 vs. buying separately', 'All future kit updates included'],
+  outcomes: ['All three kits + the Agent Skills Pack', 'Save $67 vs. buying separately', 'All future updates included'],
   contents: [],
 };
 

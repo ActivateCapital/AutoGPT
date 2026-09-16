@@ -2,6 +2,7 @@ import { ArrowRight, Check, Sparkles, Zap, Mail, FileText, Target, Package, Wren
 import { kits, bundle, doneForYou, CONTACT_EMAIL, PAYMENT_LINK_PENDING, type Product } from '@/lib/products';
 
 const kitIcons: Record<string, React.ReactNode> = {
+  'agent-skills-pack': <Zap className="w-10 h-10 text-amber-400" />,
   'lead-qualifier-kit': <Target className="w-10 h-10 text-purple-400" />,
   'inbox-triage-kit': <Mail className="w-10 h-10 text-cyan-400" />,
   'content-repurposer-kit': <FileText className="w-10 h-10 text-emerald-400" />,
@@ -161,7 +162,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {kits.map((kit) => (
               <div
                 key={kit.id}
@@ -263,7 +264,7 @@ export default function Home() {
               },
               {
                 q: 'What do I need to run it?',
-                a: 'An Anthropic (Claude) API key, and either Python 3.10+ for the CLI or a Zapier-style account for the no-code recipe. API usage is billed by Anthropic to you and typically costs cents per run at these workloads.',
+                a: 'For the Agent Skills Pack: just a SKILL.md-compatible agent you already use (Claude Code, Cursor, Copilot, etc.) — copy the folders in and you’re done. For the full kits: an Anthropic (Claude) API key, and either Python 3.10+ for the CLI or a Zapier-style account for the no-code recipe; API usage typically costs cents per run.',
               },
               {
                 q: 'Is this a subscription?',
