@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { LogoMark, IconSkills, IconDownload, IconCheck, IconArrow, IconGift } from '@/components/icons';
 import { kits } from '@/lib/products';
+import { GuideLinks } from '@/components/guide-page';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://skills.creai.dev';
 
@@ -187,6 +188,7 @@ export default function ClaudeCodeSkillsGuide() {
             </div>
           ))}
         </dl>
+        <GuideLinks current="claude-code-skills" />
       </article>
 
       <footer className="py-12 px-5 border-t hairline">

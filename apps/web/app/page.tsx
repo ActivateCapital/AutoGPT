@@ -415,6 +415,13 @@ export default function Home() {
             <LogoMark className="w-5 h-5 text-brand" />
             <span>© 2026 CreAI. All rights reserved.</span>
           </div>
+          <nav aria-label="Guides" className="flex flex-wrap justify-center gap-x-4 gap-y-1">
+            <a href="/claude-skills" className="underline underline-offset-2 hover:text-ink">Claude skills</a>
+            <a href="/claude-code-skills" className="underline underline-offset-2 hover:text-ink">Claude Code skills guide</a>
+            <a href="/agent-skills" className="underline underline-offset-2 hover:text-ink">Agent skills</a>
+            <a href="/claude-skills-marketplace" className="underline underline-offset-2 hover:text-ink">Finding skills</a>
+            <a href="/claude-code-plugins" className="underline underline-offset-2 hover:text-ink">Plugins vs skills</a>
+          </nav>
           <p className="text-center md:text-right max-w-xl text-xs leading-relaxed">
             Kits are independent products built on the Claude API. Claude is a trademark of
             Anthropic; CreAI is not affiliated with or endorsed by Anthropic.

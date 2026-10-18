@@ -14,9 +14,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://skills.creai.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   alternates: { canonical: SITE_URL },
-  title: "CreAI Automation Kits — Working AI Agents, Today",
+  title: "Claude Skills & AI Agent Kits for Business | CreAI",
   description:
-    "Ready-to-deploy AI agent automation kits: lead qualification, inbox triage, and content repurposing. Prompt systems, runnable code, and no-code recipes you set up in 15 minutes.",
+    "Claude skills and AI agent kits for lead scoring, inbox triage and content repurposing. Install in 60 seconds or run the kits in 15 minutes. Try one free.",
   keywords:
     "AI automation kit, AI agents, lead scoring, inbox triage, content repurposing, Claude automation, workflow automation, agent skills",
   authors: [{ name: "CreAI" }],
