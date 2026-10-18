@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://storefront-production-c1a7.up.railway.app';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://skills.creai.dev';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
