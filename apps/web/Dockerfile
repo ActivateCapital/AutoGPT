@@ -38,6 +38,8 @@ RUN adduser --system --uid 1001 nextjs
 
 # Copy necessary files from builder
 COPY --from=builder /app/public ./public
+# Paid files: served only through /api/download (never from /public)
+COPY --from=builder /app/private-downloads ./private-downloads
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
