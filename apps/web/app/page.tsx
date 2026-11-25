@@ -18,6 +18,11 @@ import {
 import { WorkflowSchematic } from '@/components/schematic';
 import { TerminalDemo } from '@/components/terminal-demo';
 import { Reveal } from '@/components/reveal';
+import { activeBundleOffer, BF_PRICE, BF_WAS } from '@/lib/offer';
+
+// Rendered per request so the Black Friday price switches on and off by date and
+// env (see lib/offer.ts) without a redeploy. Traffic is small; render is cheap.
+export const dynamic = 'force-dynamic';
 
 const kitIcons: Record<string, React.ReactNode> = {
   'agent-skills-pack': <IconSkills className="w-9 h-9 text-brand" />,
@@ -53,6 +58,15 @@ function BuyButton({ product, highlighted = false }: { product: Product; highlig
 }
 
 export default function Home() {
+  const offer = activeBundleOffer();
+  const bundleShown: Product = offer
+    ? {
+        ...bundle,
+        price: BF_PRICE,
+        paymentLink: offer.link,
+        outcomes: bundle.outcomes.map((o) => (o.startsWith('Save $') ? 'Save $97 vs. buying separately' : o)),
+      }
+    : bundle;
   const contactReady = CONTACT_EMAIL !== 'CONTACT_EMAIL_PENDING';
   // Until checkout links are live, the only completable action is the free
   // download — so it takes the primary CTA slot. Flips automatically when
@@ -296,11 +310,13 @@ export default function Home() {
           {/* Bundle */}
           <div className="relative bg-ink text-paper rounded-lg p-8 md:p-10 md:flex items-center gap-10">
             <div className="flex-1">
-              <p className="text-xs font-semibold tracking-[0.14em] uppercase text-accent mb-3">Best value</p>
+              <p className="text-xs font-semibold tracking-[0.14em] uppercase text-accent mb-3">
+                {offer ? 'Black Friday price, through Dec 1' : 'Best value'}
+              </p>
               <h3 className="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-2">{bundle.name}</h3>
               <p className="text-paper/70 mb-4 max-w-measure">{bundle.tagline}</p>
               <ul className="space-y-1.5">
-                {bundle.outcomes.map((o) => (
+                {bundleShown.outcomes.map((o) => (
                   <li key={o} className="flex items-start gap-2.5 text-sm text-paper/90">
                     <IconCheck className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                     {o}
@@ -310,10 +326,15 @@ export default function Home() {
             </div>
             <div className="mt-8 md:mt-0 md:w-64 shrink-0 text-center">
               <p className="mb-4">
-                <span className="font-display text-5xl font-semibold">{bundle.price}</span>
-                <span className="block text-sm text-paper/60 mt-1">one-time</span>
+                {offer && (
+                  <span className="block text-lg text-paper/60 line-through mb-1">{BF_WAS}</span>
+                )}
+                <span className="font-display text-5xl font-semibold">{bundleShown.price}</span>
+                <span className="block text-sm text-paper/60 mt-1">
+                  {offer ? 'one-time, through Dec 1 (Puerto Rico time)' : 'one-time'}
+                </span>
               </p>
-              <BuyButton product={bundle} highlighted />
+              <BuyButton product={bundleShown} highlighted />
             </div>
           </div>
         </div>
