@@ -174,13 +174,18 @@ export default function Home() {
             </h2>
             <p className="text-ink-soft leading-relaxed mb-3 max-w-measure">
               The Meeting Actions skill — one of five in the Agent Skills Pack. Drop a
-              meeting transcript on Claude Code (or any SKILL.md-compatible agent) and
+              meeting transcript on Claude (the app or Claude Code) and
               get decisions, owned action items with deadlines, and a follow-up email
               you review and send.
             </p>
-            <p className="text-sm text-ink-soft mb-7">
-              Install: unzip into <code className="text-brand font-medium">~/.claude/skills/</code>.
+            <p className="text-sm text-ink-soft mb-3">
+              Claude Code: unzip into <code className="text-brand font-medium">~/.claude/skills/</code>.
               That&apos;s the whole setup — and exactly how the paid skills work too.
+            </p>
+            <p className="text-sm text-ink-soft mb-7">
+              Claude app (web or desktop): open <span className="font-medium text-ink">Plugins</span> in
+              the sidebar (Customize on older and some team accounts), click <span className="font-medium text-ink">+</span>,
+              then upload this ZIP as a skill. Code execution needs to be on (on Team plans, an admin turns it on).
             </p>
             <a
               href="/downloads/creai-meeting-actions-free.zip"
