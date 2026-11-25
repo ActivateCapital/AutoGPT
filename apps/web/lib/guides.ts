@@ -96,7 +96,7 @@ export const GUIDES: Guide[] = [
       },
       {
         q: 'How do I install a Claude skill?',
-        a: 'In Claude Code, copy the skill folder into ~/.claude/skills/ for all your projects, or into your-repo/.claude/skills/ to share it with your team through git, then start a new session. In the Claude app (web or desktop), zip one skill folder, open Plugins in the sidebar (formerly Customize), click +, and upload the ZIP as a skill; code execution has to be on in Settings.',
+        a: 'In Claude Code, copy the skill folder into ~/.claude/skills/ for all your projects, or into your-repo/.claude/skills/ to share it with your team through git, then start a new session. In the Claude app (web or desktop), zip one skill folder, open Plugins in the sidebar (Customize on older and some team accounts), click +, and upload the ZIP as a skill; code execution has to be on (on Team plans, an admin turns it on).',
       },
       ...COMMON_FAQ,
     ],

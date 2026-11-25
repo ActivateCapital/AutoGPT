@@ -184,8 +184,8 @@ export default function Home() {
             </p>
             <p className="text-sm text-ink-soft mb-7">
               Claude app (web or desktop): open <span className="font-medium text-ink">Plugins</span> in
-              the sidebar (it used to say Customize), click <span className="font-medium text-ink">+</span>,
-              then upload this ZIP as a skill. Code execution needs to be on in Settings.
+              the sidebar (Customize on older and some team accounts), click <span className="font-medium text-ink">+</span>,
+              then upload this ZIP as a skill. Code execution needs to be on (on Team plans, an admin turns it on).
             </p>
             <a
               href="/downloads/creai-meeting-actions-free.zip"

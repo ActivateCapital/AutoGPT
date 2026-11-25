@@ -109,8 +109,8 @@ export default function ClaudeCodeSkillsGuide() {
         </p>
         <p className="text-ink-soft leading-relaxed mb-8">
           Using the Claude app on the web or desktop instead? Zip one skill folder, open{' '}
-          <strong>Plugins</strong> in the sidebar (it used to say Customize), click <strong>+</strong>{' '}
-          and upload the ZIP as a skill. Code execution needs to be on in Settings. Once it is
+          <strong>Plugins</strong> in the sidebar (Customize on older and some team accounts), click <strong>+</strong>{' '}
+          and upload the ZIP as a skill. Code execution needs to be on (on Team plans, an admin turns it on). Once it is
           added, type <Code>/</Code> in a chat to pick it.
         </p>
 
