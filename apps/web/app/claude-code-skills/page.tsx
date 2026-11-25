@@ -107,6 +107,12 @@ export default function ClaudeCodeSkillsGuide() {
           it — or invoke it directly by name, like <Code>/creai-meeting-actions</Code>.
           Uninstalling is deleting the folder. No registries, no daemons.
         </p>
+        <p className="text-ink-soft leading-relaxed mb-8">
+          Using the Claude app on the web or desktop instead? Zip one skill folder, open{' '}
+          <strong>Plugins</strong> in the sidebar (it used to say Customize), click <strong>+</strong>{' '}
+          and upload the ZIP as a skill. Code execution needs to be on in Settings. Once it is
+          added, type <Code>/</Code> in a chat to pick it.
+        </p>
 
         <h2 className="font-display text-2xl font-semibold tracking-tight mt-12 mb-4">What makes a skill good</h2>
         <ul className="space-y-3 mb-8">
