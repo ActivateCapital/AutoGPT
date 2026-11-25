@@ -1,3 +1,5 @@
+import { envValue, extraPaymentLinkIds } from './offer';
+
 // Post-purchase delivery.
 //
 // Paid files live in /private-downloads (NOT /public), so they can only be
@@ -68,7 +70,7 @@ export async function checkPurchase(
   sessionId: string | null | undefined,
   fetchImpl: typeof fetch = fetch,
 ): Promise<PurchaseCheck> {
-  const key = process.env.STRIPE_SECRET_KEY;
+  const key = envValue('STRIPE_SECRET_KEY');
   if (!key) return { ok: true, mode: 'open' };
   if (!sessionId || !SESSION_ID.test(sessionId)) return { ok: false, reason: 'missing-session' };
   try {
@@ -79,7 +81,8 @@ export async function checkPurchase(
     if (res.status === 404) return { ok: false, reason: 'missing-session' };
     if (!res.ok) return { ok: false, reason: 'stripe-error' };
     const s = (await res.json()) as { payment_status?: string; payment_link?: string | null };
-    if (s.payment_link !== item.paymentLinkId) return { ok: false, reason: 'wrong-product' };
+    const allowed = [item.paymentLinkId, ...extraPaymentLinkIds(item.slug)];
+    if (!s.payment_link || !allowed.includes(s.payment_link)) return { ok: false, reason: 'wrong-product' };
     if (s.payment_status !== 'paid' && s.payment_status !== 'no_payment_required') {
       return { ok: false, reason: 'not-paid' };
     }
