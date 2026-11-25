@@ -331,7 +331,7 @@ export default function Home() {
                 )}
                 <span className="font-display text-5xl font-semibold">{bundleShown.price}</span>
                 <span className="block text-sm text-paper/60 mt-1">
-                  {offer ? 'one-time, until Dec 1 (Puerto Rico time)' : 'one-time'}
+                  {offer ? 'one-time, through Dec 1 (Puerto Rico time)' : 'one-time'}
                 </span>
               </p>
               <BuyButton product={bundleShown} highlighted />
