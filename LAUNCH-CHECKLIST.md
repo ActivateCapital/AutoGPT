@@ -17,11 +17,9 @@ storefront; everything else is done or agent-executable on request.
 
 ## ✅ Payment rail — DONE (Stripe, live mode)
 
-**Account switched back (2026-11-26, Mosaiah's call):** checkout and delivery now use the CreaiDev account
-`acct_1QU4AFIritf6Tf1Z` (charges + payouts enabled). The five `plink_1UGBl*`/`plink_1UGBm4*` links there are the
-live ones; the Activate LLC links (`plink_1UGCw*`) are no longer used by the site. Deactivate them in the Activate
-dashboard. Black Friday $69 bundle link: `plink_1UfuWXIritf6Tf1ZadzKBiIf` (deactivate after Dec 1).
-`STRIPE_SECRET_KEY` on Railway must be a CreaiDev restricted key (Checkout Sessions: Read).
+**Back on Activate LLC (2026-11-26, Mosaiah's call):** checkout and delivery use `acct_1EpIM3Ebn7Qq6jsm`
+(`plink_1UGCw*`). CreaiDev's kit links and its $69 link were deactivated. `STRIPE_SECRET_KEY` on Railway must be an
+Activate restricted key (Checkout Sessions: Read). The $69 Black Friday link must be created on Activate.
 
 **Account switched (2026-09-16):** the storefront now sells through Stripe account
 `acct_1EpIM3Ebn7Qq6jsm` ("Activate" / Activate LLC). The previous account

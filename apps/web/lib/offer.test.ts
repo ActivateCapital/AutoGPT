@@ -37,13 +37,13 @@ test('checkPurchase: offer link unlocks the bundle only; main link still works',
   }
 });
 
-// Checkout and delivery must point at the same Stripe account (CreaiDev, acct_1QU4AFIritf6Tf1Z):
+// Checkout and delivery must point at the same Stripe account (Activate LLC, acct_1EpIM3Ebn7Qq6jsm):
 // a session from another account can't be verified with that account's key.
-test('every deliverable plink is on the CreaiDev account and every product has a matching link', async () => {
+test('every deliverable plink is on the Activate LLC account and every product has a matching link', async () => {
   const { deliverables } = await import('./delivery');
   const { kits, bundle } = await import('./products');
-  for (const d of deliverables) assert.match(d.paymentLinkId, /^plink_1\w+Iritf6Tf1Z\w+$/, d.slug);
+  for (const d of deliverables) assert.match(d.paymentLinkId, /^plink_1\w+Ebn7Qq6jsm\w+$/, d.slug);
   const links = [...kits, bundle].map((p) => p.paymentLink);
-  for (const l of links) assert.match(l, /^https:\/\/buy\.stripe\.com\/\w+cIE0\d$/);
+  for (const l of links) assert.match(l, /^https:\/\/buy\.stripe\.com\/\w+5ZC0[c-g]$/);
   assert.equal(new Set(links).size, links.length);
 });
