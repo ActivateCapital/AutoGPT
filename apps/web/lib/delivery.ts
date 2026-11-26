@@ -25,31 +25,31 @@ export const deliverables: Deliverable[] = [
   {
     slug: 'agent-skills-pack',
     name: 'Agent Skills Pack',
-    paymentLinkId: 'plink_1UGCwGEbn7Qq6jsmUz9ersLE',
+    paymentLinkId: 'plink_1UGBlTIritf6Tf1ZfL6k6QZX',
     files: [{ label: 'creai-agent-skills-pack-v1.0.zip', file: 'creai-agent-skills-pack-v1.0.zip' }],
   },
   {
     slug: 'lead-qualifier-kit',
     name: 'Lead Qualifier Agent Kit',
-    paymentLinkId: 'plink_1UGCwREbn7Qq6jsm1pmbsy5p',
+    paymentLinkId: 'plink_1UGBleIritf6Tf1Z9iGtpDdn',
     files: [{ label: 'creai-lead-qualifier-kit-v1.0.zip', file: 'creai-lead-qualifier-kit-v1.0.zip' }],
   },
   {
     slug: 'inbox-triage-kit',
     name: 'Inbox Triage Agent Kit',
-    paymentLinkId: 'plink_1UGCwUEbn7Qq6jsmMbSH3sWQ',
+    paymentLinkId: 'plink_1UGBlnIritf6Tf1ZIpjikwOK',
     files: [{ label: 'creai-inbox-triage-kit-v1.0.zip', file: 'creai-inbox-triage-kit-v1.0.zip' }],
   },
   {
     slug: 'content-repurposer-kit',
     name: 'Content Repurposer Kit',
-    paymentLinkId: 'plink_1UGCwYEbn7Qq6jsmYCKk345s',
+    paymentLinkId: 'plink_1UGBlvIritf6Tf1Z6t0xVhJm',
     files: [{ label: 'creai-content-repurposer-kit-v1.0.zip', file: 'creai-content-repurposer-kit-v1.0.zip' }],
   },
   {
     slug: 'all-kits-bundle',
     name: 'Everything Bundle',
-    paymentLinkId: 'plink_1UGCwbEbn7Qq6jsmWW00ULxI',
+    paymentLinkId: 'plink_1UGBm4Iritf6Tf1Zid9nIzz8',
     files: [{ label: 'creai-everything-bundle-v1.0.zip', file: 'creai-everything-bundle-v1.0.zip' }],
   },
 ];
